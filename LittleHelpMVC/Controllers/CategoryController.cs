@@ -46,9 +46,30 @@ namespace LittleHelpMVC.Controllers
                 context.Categories.Add(helpCategory);
                 context.SaveChanges();
 
-                return Redirect("/Category");
+                return RedirectToAction("Category","Admin");
             }
             return View(addCategoryViewModel);
         }
+
+        public IActionResult Remove()
+        {
+            ViewBag.categories = context.Categories.ToList();
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Remove(int[] catIds)
+        {
+            foreach (int catId in catIds)
+            {
+                HelpCategory theCategory = context.Categories.Single(c => c.ID == catId);
+
+                context.Categories.Remove(theCategory);
+            }
+            context.SaveChanges();
+            return RedirectToAction("Category", "Admin");
+        }
+
+
     }
 }

@@ -66,7 +66,7 @@ namespace LittleHelpMVC.Controllers
                 context.Users.Add(newUser);
                 context.SaveChanges();
 
-                return RedirectToAction("Add", "LittleHelp",new { name=newUser.Username,scrname=newUser.Screenname});
+                return RedirectToAction("Add", "LittleHelp", new { name = newUser.Username });
             }
 
             return View(addUserViewModel);

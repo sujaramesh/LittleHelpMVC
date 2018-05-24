@@ -23,5 +23,5 @@
 
 @*<a asp-controller="LittleHelp" asp-action="Add">Add Entry</a><br />*@
 
-<div>@Html.ActionLink("Add","Add", "LittleHelp", new { name = ViewBag.name })</div>
-<a asp-controller="LittleHelp" asp-action="Index">Logout</a>
+<p>@Html.ActionLink("Add an Entry","Add", "LittleHelp", new { name = ViewBag.name })</p>
+<p><a asp-controller="LittleHelp" asp-action="Index"><b>Logout</b></a><p>

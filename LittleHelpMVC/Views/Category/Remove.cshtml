@@ -1,0 +1,11 @@
+﻿@model LittleHelpMVC.Models.HelpCategory
+<h3>Remove Service</h3>
+<form method="post">
+    @foreach (var category in ViewBag.categories)
+    {
+        <input type="checkbox" name="catIds" id="@category.ID " value="@category.ID" />
+        <label for="@category.ID">@category.Name</label><br />
+    }
+    <input type="submit" value="Remove Service" />
+</form>
+<br/>

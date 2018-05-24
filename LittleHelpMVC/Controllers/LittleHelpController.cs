@@ -38,7 +38,7 @@ namespace LittleHelpMVC.Controllers
         }
 
         [HttpGet]
-        public IActionResult Add(string name, string scrname)
+        public IActionResult Add(string name)
         {
             AddHelpViewModel addHelpViewModel = new AddHelpViewModel(context.Categories.ToList());
             ViewBag.Title = name;
@@ -50,7 +50,7 @@ namespace LittleHelpMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                HelpCategory newCheeseCategory =
+                 HelpCategory newHelpCategory =
                    context.Categories.Single(c => c.ID == addHelpViewModel.CategoryID);
 
                 LittleHelp helper = new LittleHelp
@@ -58,7 +58,7 @@ namespace LittleHelpMVC.Controllers
                     Name = addHelpViewModel.Name,
                     Contact = addHelpViewModel.Contact,
                     Description = addHelpViewModel.Description,
-                    CategoryID = addHelpViewModel.CategoryID
+                    Category = newHelpCategory
                 };
 
                 context.Helpers.Add(helper);

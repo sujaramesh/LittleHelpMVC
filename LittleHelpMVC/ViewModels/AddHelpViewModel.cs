@@ -14,6 +14,7 @@ namespace LittleHelpMVC.ViewModels
         public string Name { get; set; }
         [Required]
         public string Contact { get; set; }
+        [Required]
         [StringLength(100)]
         public string Description { get; set; }
         [Required]

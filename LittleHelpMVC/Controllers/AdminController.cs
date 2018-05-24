@@ -24,6 +24,17 @@ namespace LittleHelpMVC.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
+            return View();
+        }
+
+        public IActionResult Category()
+        {
+            List<HelpCategory> categories = context.Categories.ToList();
+            return View(categories);
+        }
+
+        public IActionResult Entries()
+        {
             List<LittleHelp> helpers = context.Helpers.Include(c => c.Category).ToList();
             ViewBag.Title = "Little Help";
             return View(helpers);
@@ -45,7 +56,7 @@ namespace LittleHelpMVC.Controllers
                 context.Helpers.Remove(theHelper);
             }
             context.SaveChanges();
-            return RedirectToAction("Index", "Admin");
+            return RedirectToAction("Entries", "Admin");
         }
 
         public IActionResult Edit(int Id)
@@ -54,7 +65,7 @@ namespace LittleHelpMVC.Controllers
 
             User userData = context.Users.FirstOrDefault(c => c.ID == Id);
             //           resetViewModel.Password = userData.Password;
-            ViewBag.Title = "Reset Password" + Id;
+            ViewBag.Title = "Reset Password "+ userData.Username;
             ViewBag.LoginId = Id;
             return View(resetViewModel);
         }

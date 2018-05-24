@@ -4,9 +4,9 @@
 
 @foreach (var category in Model)
 {
-    <ul>
-        <a asp-controller="LittleHelp"
-           asp-action="Category"
-           asp-route-id="@category.ID">@category.Name</a>
-    </ul>
+<ul>
+    <a asp-controller="LittleHelp"
+       asp-action="Category"
+       asp-route-id="@category.ID">@category.Name</a> <br />
+</ul>
 }

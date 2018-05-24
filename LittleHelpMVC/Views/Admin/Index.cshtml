@@ -1,27 +1,14 @@
-﻿<h2>@ViewBag.Title</h2>
+﻿<h3>Admin Main Page</h3>
 
-<table class="table">
-    <tr>
-        <th>Name</th>
-        <th>Contact Info</th>
-        <th>Description</th>
-        <th>Category</th>
-        <th>Reset Password</th>
-    </tr>
-    @foreach (var help in Model)
-
-    {
-        <tr>
-            <td>@help.Name</td>
-            <td>@help.Contact</td>
-            <td>@help.Description</td>
-            <td>@help.Category.Name</td>
-            <td><a asp-controller="Admin" asp-action="Edit" asp-route-id="@help.ID">Change</a></td>
-        </tr>
-    }
-</table>
-
-@*<a asp-controller="LittleHelp" asp-action="Add">Add Entries</a><br />*@
-<a asp-controller="Admin" asp-action="Remove">Remove Entry</a><br />
-<a asp-controller="Category" asp-action="Add">Add Service</a><br />
-<a asp-controller="LittleHelp" asp-action="Index">Logout</a><br />
+<p>
+    <div>
+        <ul>
+            <li><a asp-controller="Admin" asp-action="Entries">View Entries</a></li>
+            <li><a asp-controller="Admin" asp-action="Remove">Remove Entry</a></li>
+            <li><a asp-controller="Admin" asp-action="Category">View Service</a></li>
+            <li><a asp-controller="Category" asp-action="Add">Add Service</a></li>
+            <li><a asp-controller="Category" asp-action="Remove">Remove Service</a></li>
+        </ul>
+    </div>
+</p>
+<a asp-controller="LittleHelp" asp-action="Index"><b>Logout</b></a>

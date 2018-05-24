@@ -1,12 +1,14 @@
-﻿<h3>Remove an entry</h3>
+﻿@model LittleHelpMVC.Models.LittleHelp
+<h3>Remove an entry</h3>
 <form method="post">
     @foreach (var help in ViewBag.helpers)
     {
         <input type="checkbox" name="helpIds" id="@help.ID " value="@help.ID" />
-        <label for="@help.ID">@help.Name</label><br />
+        <label for="@help.ID">@help.Name</label>
+        <label>@help.Category.Name</label><br/>
     }
     <input type="submit" value="Remove entry" />
 </form>
 <br />
-<p><a asp-controller="Admin" asp-action="Index">Main Page</a></p>
+<p><a asp-controller="Admin" asp-action="Index"><b>Main Page</b></a></p>
 

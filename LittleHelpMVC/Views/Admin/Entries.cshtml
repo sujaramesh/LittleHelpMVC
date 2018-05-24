@@ -1,0 +1,27 @@
+﻿@model List<LittleHelpMVC.Models.LittleHelp>
+<h2>@ViewBag.Title</h2>
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Contact Info</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Reset Password</th>
+    </tr>
+    @foreach (var help in Model)
+
+    {
+        <tr>
+            <td>@help.Name</td>
+            <td>@help.Contact</td>
+            <td>@help.Description</td>
+            <td>@help.Category.Name</td>
+            <td><a asp-controller="Admin" asp-action="Edit" asp-route-id="@help.ID">Change</a></td>
+        </tr>
+    }
+</table>
+
+<br />
+<p><a asp-controller="Admin" asp-action="Index"><b>Main Page</b></a></p>
+
